@@ -1,13 +1,15 @@
 CXX := g++
 CXXFLAGS := -g -Wall -std=c++17
 
-CDIR := components
-ODIR := obj
-SDIR := src
+COMPDIR := components
+OBJDIR := obj
+SRCDIR := src
+SIMDIR := simulation
+EVENTDIR := events
 
-SRC := $(wildcard $(SDIR)/$(CDIR)/*.cpp)  $(wildcard $(SDIR)/*.cpp)
+SRC := $(wildcard $(SRCDIR)/$(COMPDIR)/*.cpp)  $(wildcard $(SRCDIR)/*.cpp) $(wildcard $(SRCDIR)/$(SIMDIR)/*.cpp) $(wildcard $(SRCDIR)/$(SIMDIR)/$(EVENTDIR)/*.cpp)
 
-OBJ := $(patsubst %, $(ODIR)/%, $(SRC:%.cpp=%.o))
+OBJ := $(patsubst %, $(OBJDIR)/%, $(SRC:%.cpp=%.o))
 
 EXE := PID_265DS
 
@@ -16,11 +18,11 @@ all: $(EXE) clean
 $(EXE): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(OBJ): $(ODIR)/%.o : %.cpp | $(ODIR)
+$(OBJ): $(OBJDIR)/%.o : %.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(ODIR):
-	mkdir $(ODIR) && cd $(ODIR) && mkdir $(SDIR) && cd $(SDIR) && mkdir $(CDIR)
+$(OBJDIR):
+	mkdir $(OBJDIR) && cd $(OBJDIR) && mkdir $(SRCDIR) && cd $(SRCDIR) && mkdir $(COMPDIR) && mkdir $(SIMDIR) && cd $(SIMDIR) && mkdir $(EVENTDIR)
 
 clean:
-	$(RM) -r $(ODIR)
+	$(RM) -r $(OBJDIR)

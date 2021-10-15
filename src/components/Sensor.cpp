@@ -1,7 +1,5 @@
 #include "Sensor.h"
 
-Sensor::Sensor(){};
-
 Sensor::Sensor(Component* variable, Component component) : Component(component.name(), component.description(), "sensor", component.tag())
 {
     variable_ = variable;

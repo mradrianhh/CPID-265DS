@@ -11,7 +11,7 @@ class Valve : public Actuator
     double max_flow_rate_;
 
     public:
-    Valve();
+    Valve(){};
     Valve(Container* variable, Actuator actuator, double max_flow_rate);
     Valve(Container* variable, string name, string description, string tag, double max_flow_rate);
     double position();

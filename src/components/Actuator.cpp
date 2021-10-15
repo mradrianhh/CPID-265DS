@@ -1,7 +1,5 @@
 #include "Actuator.h"
 
-Actuator::Actuator(){};
-
 Actuator::Actuator(Component* variable, string name, string description, string tag) : Component(name, description, "actuator", tag)
 {
     variable_ = variable;

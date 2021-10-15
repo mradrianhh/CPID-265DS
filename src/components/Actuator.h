@@ -10,7 +10,7 @@ class Actuator : public Component
     Component* variable_;
 
     public:
-    Actuator();
+    Actuator(){};
     Actuator(Component* variable, Component component);
     Actuator(Component* variable, string name, string description, string tag);
     Component* variable();

@@ -11,7 +11,7 @@ class Container : public Component
     double fluid_level_;
 
     public:
-    Container();
+    Container(){};
     Container(Component component);
     Container(string name, string description, string tag);
     double fluid_level();

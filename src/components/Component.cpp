@@ -1,7 +1,5 @@
 #include "Component.h"
 
-Component::Component(){};
-
 Component::Component(string name, string description, string type, string tag)
 {
     name_ = name;

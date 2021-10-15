@@ -13,7 +13,7 @@ class Component
     string tag_;
 
     public:
-    Component();
+    Component(){};
     Component(string name, string description, string type, string tag);
     void print_information();
     string name();

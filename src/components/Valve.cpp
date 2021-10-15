@@ -1,7 +1,5 @@
 #include "Valve.h"
 
-Valve::Valve(){};
-
 Valve::Valve(Container* variable, Actuator actuator, double max_flow_rate) : Actuator(variable, actuator.name(), actuator.description(), actuator.tag())
 {
     max_flow_rate_ = max_flow_rate;
